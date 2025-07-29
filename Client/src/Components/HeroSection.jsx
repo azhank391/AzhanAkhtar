@@ -98,7 +98,7 @@ const ResponsiveHeroSection = () => {
             
             {/* Name with matrix effect - better responsive sizing */}
             <div className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight">
-              <MatrixRevealText text="MUHAMMAD AZHAN" speed={50} delay={100} />
+              <MatrixRevealText text="MUHAMMAD AZHAN" speed={10} delay={100} />
             </div>
           </h1>
 
