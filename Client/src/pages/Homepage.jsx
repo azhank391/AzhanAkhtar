@@ -214,7 +214,7 @@ const Portfolio = () => {
               isVisible['hero-content'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-16'
             }`}
           >
-            <h1 className="text-3xl xs:text-5xl sm:text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500 bg-clip-text text-transparent break-words">
+            <h1 className="text-lg xs:text-5xl sm:text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500 bg-clip-text text-transparent break-words">
               <span>HELLO, I'M</span>
               <MatrixRevealText text="MUHAMMAD AZHAN" speed={10} />
             </h1>
