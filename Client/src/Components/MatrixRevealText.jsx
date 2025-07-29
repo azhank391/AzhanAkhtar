@@ -40,7 +40,6 @@ const MatrixRevealText = ({ text = "MyName", speed = 30, delay = 80 }) => {
       style={{
         fontFamily: "monospace",
         fontSize: "2.5rem",
-        padding: "20px",
         whiteSpace: "nowrap",
         overflow: "hidden",
         letterSpacing: "2px",

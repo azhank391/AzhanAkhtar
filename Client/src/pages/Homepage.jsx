@@ -216,7 +216,15 @@ const Portfolio = () => {
           >
             <h1 className="text-lg xs:text-5xl sm:text-6xl md:text-8xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500 bg-clip-text text-transparent break-words">
               <span>HELLO, I'M</span>
-              <MatrixRevealText text="MUHAMMAD AZHAN" speed={10} />
+              {/* Responsive stacking for name */}
+              <span className="block md:inline md:ml-4">
+                <span className="block xs:inline">
+                  <MatrixRevealText text="MUHAMMAD AZHAN" speed={10} />
+                </span>
+                {/* <span className="block xs:inline md:ml-2">
+                  <MatrixRevealText text="AZHAN" speed={10} />
+                </span> */}
+              </span>
             </h1>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Full Stack Developer & UI/UX Designer
@@ -381,33 +389,7 @@ const Portfolio = () => {
   ))}
 </div>
 
-          {/* Additional Skills Overview */}
-          {/* <div 
-            data-reveal 
-            id="skills-overview"
-            className={`mt-10 sm:mt-20 transition-all duration-800 ease-out ${
-              isVisible['skills-overview'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-            }`}
-            style={{ transitionDelay: '600ms' }}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-              {skills.map((skill, index) => (
-                <div 
-                  key={skill.name}
-                  className={`bg-gradient-to-r from-slate-800 to-slate-700 p-6 sm:p-8 rounded-xl border border-orange-500/20 hover:border-orange-400/40 transition-all duration-500 hover:transform hover:scale-105 text-center ${
-                    isVisible['skills-overview'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                  }`}
-                  style={{ transitionDelay: `${800 + index * 100}ms` }}
-                >
-                  <div className="flex justify-center mb-3 sm:mb-4">
-                    <skill.icon className="w-10 h-10 sm:w-12 sm:h-12 text-orange-400" />
-                  </div>
-                  <h4 className="text-lg sm:text-xl font-semibold text-orange-300 mb-2 sm:mb-3">{skill.name}</h4>
-                  <p className="text-gray-400 text-xs sm:text-sm">{skill.description}</p>
-                </div>
-              ))}
-            </div>
-          </div> */}
+
         </div>
       </section>
 
