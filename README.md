@@ -145,8 +145,7 @@ Make sure to update all `.env` files and CORS settings for production.
 
 **Azhan Akhtar**  
 Full Stack Developer | Portfolio & Client Projects  
-📧 Email: [your-email@example.com]  
-🌐 Website: [your-portfolio.com]
+📧 Email: azhanakhtarcaia@gmail.com  
 
 ---
 
