@@ -1,8 +1,8 @@
 require('dotenv').config();
-
+import pg from 'pg';
 const commonConfig = {
   dialect: 'postgres',
-  dialectModule: require('pg'),
+  dialectModule: pg,
   dialectOptions: {
     ssl: process.env.DB_SSL === 'true' ? {
       require: true,
