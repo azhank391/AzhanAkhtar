@@ -10,9 +10,11 @@ const app = express();
 app.use(express.json());
 app.use(cors({ origin: allowedOrigins,
     methods:['GET','POST','PUT','DELETE'],
-    allowedHeaders:['Content-Type']
+    allowedHeaders:['Content-Type'],
+    credentials: true
  }));
-app.options('*', cors()); // Enable preflight requests for all routes
+app.options('*', cors()); // allow preflight
+
 app.post('/api/contact',async (req, res) => {
     try {
         const {name,email,message} = req.body;
@@ -41,4 +43,4 @@ app.get('/',async (req,res)=> {
   }
 })
 //vercel serverless export
-module.exports = serverless(app); // Export the app for serverless deployment
+module.exports.handler = serverless(app); // Export the app for serverless deployment
