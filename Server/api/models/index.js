@@ -13,22 +13,7 @@ let sequelize;
 
 if (config.use_env_variable) {
   // Load database connection using full DATABASE_URL
-  sequelize = new Sequelize(process.env[config.use_env_variable], {
-    dialect: 'postgres',
-    dialectOptions: {
-      ssl: process.env.DB_SSL === 'true' ? {
-        require: true,
-        rejectUnauthorized: false
-      } : false
-    },
-    logging: false,
-    pool: {
-      max: 1,
-      min: 0,
-      acquire: 30000,
-      idle: 10000
-    }
-  });
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
   // Fallback (not used in your current setup)
   sequelize = new Sequelize(config.database, config.username, config.password, config);

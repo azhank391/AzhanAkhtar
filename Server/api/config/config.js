@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const commonConfig = {
   dialect: 'postgres',
+  dialectModule: require('pg'),
   dialectOptions: {
     ssl: process.env.DB_SSL === 'true' ? {
       require: true,
@@ -20,16 +21,6 @@ const commonConfig = {
   // Add timezone configuration
   timezone: '+00:00'
 };
-
-// For Vercel deployment, use Neon serverless client if available
-if (process.env.VERCEL && process.env.DATABASE_URL) {
-  try {
-    const { neon } = require('@neondatabase/serverless');
-    commonConfig.dialectModule = neon;
-  } catch (error) {
-    console.log('Neon serverless client not available, using default pg');
-  }
-}
 
 module.exports = {
   development: {
