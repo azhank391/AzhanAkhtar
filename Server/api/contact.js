@@ -8,7 +8,10 @@ const allowedOrigins = ['http://localhost:5173', 'https://azhan-akhtar.vercel.ap
  // Enable CORS for specified origins
 const app = express();
 app.use(express.json());
-app.use(cors({ origin: allowedOrigins }));
+app.use(cors({ origin: allowedOrigins,
+    methods:['GET','POST','PUT','DELETE'],
+    allowedHeaders:['Content-Type']
+ }));
 
 app.post('/contact',async (req, res) => {
     try {
