@@ -4,7 +4,7 @@ const db = require('../models'); // Import the database models
 const Contact = db.Contact; // Import the Contact model
 const serverless = require('serverless-http'); // Import serverless-http for serverless deployment
 const cors = require('cors');
-const allowedOrigins = ['http://localhost:5173', 'https://azhan-akhtar.vercel.app'];
+const allowedOrigins = ['http://localhost:5173', 'https://azhan-akhtar.vercel.app','https://azhan-akhtar-rndm.vercel.app'];
  // Enable CORS for specified origins
 const app = express();
 app.use(express.json());
