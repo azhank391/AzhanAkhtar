@@ -26,6 +26,8 @@ import {
   SiPostgresql,
   SiGit,
   SiHeroku,
+  SiGithub,
+  SiLinkedin,
   SiNetlify,
   SiVercel,
   SiFigma,
@@ -167,12 +169,12 @@ const Portfolio = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL; 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission logic here
     try {
-      const response = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/contact`,
+      const response = await fetch(`${API_BASE_URL}/contact`,
         {
           method: "POST",
           headers: {
