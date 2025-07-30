@@ -1,9 +1,10 @@
 const express = require('express');
 require('dotenv').config();
-const db = require('./models'); // Import the database models
+const db = require('../models'); // Import the database models
 const Contact = db.Contact; // Import the Contact model
+const serverless = require('serverless-http'); // Import serverless-http for serverless deployment
 const cors = require('cors');
-const allowedOrigins = ['http://localhost:5173',];
+const allowedOrigins = ['http://localhost:5173', 'https://azhan-akhtar.vercel.app'];
  // Enable CORS for specified origins
 const app = express();
 app.use(express.json());
@@ -37,4 +38,4 @@ app.get('/',async (req,res)=> {
   }
 })
 //vercel serverless export
-module.exports = app; // Export the app for serverless deployment
+module.exports = serverless(app); // Export the app for serverless deployment

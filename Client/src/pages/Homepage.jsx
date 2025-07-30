@@ -566,14 +566,24 @@ const Portfolio = () => {
                       </a>
                     </div>
                     <div className="flex items-center">
-                      <Github className="w-5 h-5 text-orange-400 mr-3" />
-                      <a className="text-gray-300 text-xs sm:text-base">
+                      <SiGithub className="w-5 h-5 text-orange-400 mr-3" />
+                      <a
+                        href="https://github.com/azhank391"
+                        className="text-gray-300 text-xs sm:text-base"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         https://github.com/azhank391
                       </a>
                     </div>
                     <div className="flex items-center">
-                      <Linkedin className="w-5 h-5 text-orange-400 mr-3" />
-                      <a className="text-gray-300 text-xs sm:text-base">
+                      <SiLinkedin className="w-5 h-5 text-orange-400 mr-3" />
+                      <a
+                        href="https://www.linkedin.com/in/muhammad-azhan-74931b250/"
+                        className="text-gray-300 text-xs sm:text-base"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         https://www.linkedin.com/in/muhammad-azhan-74931b250/
                       </a>
                     </div>
