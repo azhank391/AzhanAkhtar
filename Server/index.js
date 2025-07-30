@@ -26,3 +26,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+const { sequelize } = require('./models');
+
+sequelize.authenticate()
+  .then(() => console.log('✅ PostgreSQL connection successful'))
+  .catch(err => console.error('❌ DB connection failed:', err));
