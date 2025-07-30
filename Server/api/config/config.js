@@ -6,8 +6,19 @@ const commonConfig = {
     ssl: process.env.DB_SSL === 'true' ? {
       require: true,
       rejectUnauthorized: false
-    } : false
-  }
+    } : false,
+    // Add connection pooling for serverless
+    pool: {
+      max: 1,
+      min: 0,
+      acquire: 30000,
+      idle: 10000
+    }
+  },
+  // Add logging configuration
+  logging: process.env.NODE_ENV === 'development' ? console.log : false,
+  // Add timezone configuration
+  timezone: '+00:00'
 };
 
 module.exports = {

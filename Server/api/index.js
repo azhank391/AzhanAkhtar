@@ -15,6 +15,17 @@ app.use(cors({ origin: allowedOrigins,
  }));
 app.options('*', cors()); // allow preflight
 
+// Add health check endpoint
+app.get('/api/health', async (req, res) => {
+  try {
+    await db.sequelize.authenticate();
+    res.json({ status: 'OK', message: 'Database connection successful' });
+  } catch (error) {
+    console.error('Database connection error:', error);
+    res.status(500).json({ status: 'ERROR', message: 'Database connection failed' });
+  }
+});
+
 app.post('/api/contact',async (req, res) => {
     try {
         const {name,email,message} = req.body;
@@ -24,6 +35,7 @@ app.post('/api/contact',async (req, res) => {
     const contact = await Contact.create({name,email,message});
         return res.status(201).json(contact);
     } catch (error) {
+        console.error('Contact creation error:', error);
         res.status(500).json({error: 'An error occurred while saving the contact'});
         
     
