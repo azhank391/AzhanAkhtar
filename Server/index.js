@@ -26,8 +26,15 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-const { sequelize } = require('./models');
 
-sequelize.authenticate()
-  .then(() => console.log('✅ PostgreSQL connection successful'))
-  .catch(err => console.error('❌ DB connection failed:', err));
+app.get('/',async (req,res)=> {
+    try {
+    await db.sequelize.authenticate();
+    res.send('✅ Connected to DB successfully');
+  } catch (err) {
+    console.error('❌ DB connection failed:', err);
+    res.status(500).send('DB connection error');
+  }
+})
+//vercel serverless export
+module.exports = app; // Export the app for serverless deployment
