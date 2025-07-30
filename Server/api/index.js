@@ -1,6 +1,6 @@
 const express = require('express');
 require('dotenv').config();
-const db = require('../models'); // Import the database models
+const db = require('./models'); // Import the database models
 const Contact = db.Contact; // Import the Contact model
 const serverless = require('serverless-http'); // Import serverless-http for serverless deployment
 const cors = require('cors');
@@ -13,7 +13,7 @@ app.use(cors({ origin: allowedOrigins,
     allowedHeaders:['Content-Type']
  }));
 app.options('*', cors()); // Enable preflight requests for all routes
-app.post('/contact',async (req, res) => {
+app.post('/api/contact',async (req, res) => {
     try {
         const {name,email,message} = req.body;
         if (!name || !email || !message) {
