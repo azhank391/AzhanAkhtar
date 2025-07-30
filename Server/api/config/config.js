@@ -21,6 +21,16 @@ const commonConfig = {
   timezone: '+00:00'
 };
 
+// For Vercel deployment, use Neon serverless client if available
+if (process.env.VERCEL && process.env.DATABASE_URL) {
+  try {
+    const { neon } = require('@neondatabase/serverless');
+    commonConfig.dialectModule = neon;
+  } catch (error) {
+    console.log('Neon serverless client not available, using default pg');
+  }
+}
+
 module.exports = {
   development: {
     use_env_variable: 'DATABASE_URL',
